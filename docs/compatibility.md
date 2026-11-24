@@ -7,16 +7,14 @@ The reference is [spatie/robots-txt at df0f6c8](https://github.com/spatie/robots
 
 ## Feature parity
 
-| PHP behavior | Rust API | Verification |
-| --- | --- | --- |
-| Literal robots.txt, grouped agents, wildcard/anchored paths, queries, longest-rule precedence | `RobotsTxt::new`, `create`, `allows`, `allows_for` | PHP-generated rule fixtures |
-| Exact/partial agent matches and include/ignore global group | Consuming snake_case setters | All four mode combinations against PHP |
-| Crawl delays including fractions and global fallback | `crawl_delay`, `crawl_delay_for` → `Option<&str>` | PHP-generated delay fixtures |
-| Disallow reasons with original agent and path | `why_disallows` → `Option<Vec<Disallow>>` | PHP-generated reason fixtures |
-| First robots meta tag, noindex/nofollow | `RobotsMeta` | PHP HTML files and syntax-edge fixtures |
-| Global/scoped/repeated X-Robots-Tag and `none` | `RobotsHeaders` | PHP-generated header fixtures and real loopback responses |
-| Source loading and failure policies | `read_from`, `try_read_from` | Local-file and real loopback HTTP tests |
-| Default robots.txt discovery, custom source, user agent, combined index/follow checks | `Robots` | Real loopback HTTP tests, including denied-request short-circuiting |
+- **Robots.txt rules:** Literal robots.txt, grouped agents, wildcard/anchored paths, queries and longest-rule precedence use `RobotsTxt::new`, `create`, `allows` and `allows_for`. Verified with PHP-generated rule fixtures.
+- **Agent matching:** Exact/partial matches and include/ignore global group use consuming snake_case setters. All four mode combinations are verified against PHP.
+- **Crawl delays:** Fractions and global fallback use `crawl_delay` and `crawl_delay_for`, returning `Option<&str>`. Verified with PHP-generated delay fixtures.
+- **Disallow reasons:** Original agent and path use `why_disallows`, returning `Option<Vec<Disallow>>`. Verified with PHP-generated reason fixtures.
+- **Meta tags:** The first robots meta tag and noindex/nofollow use `RobotsMeta`. Verified with PHP HTML files and syntax-edge fixtures.
+- **Headers:** Global/scoped/repeated X-Robots-Tag and `none` use `RobotsHeaders`. Verified with PHP-generated header fixtures and real loopback responses.
+- **Source loading:** Loading and failure policies use `read_from` and `try_read_from`. Verified with local-file and real loopback HTTP tests.
+- **Combined checks:** Default robots.txt discovery, custom source, user agent and combined index/follow checks use `Robots`. Verified with real loopback HTTP tests, including denied-request short-circuiting.
 
 The checked-in expectations are produced by `tests/generate-fixtures.php`, not by the Rust implementation. The normal Rust test suite needs no PHP installation or running web server. See [testing](testing.md) to regenerate them. The parser fixture checks execute locally and in CI; network examples marked `no_run` compile without contacting public sites.
 
