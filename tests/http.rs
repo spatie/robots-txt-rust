@@ -39,6 +39,8 @@ impl Server {
                     }
                     Err(error) => panic!("{error}"),
                 };
+                // Windows accepts inherit the listener's non-blocking mode.
+                stream.set_nonblocking(false).unwrap();
                 stream
                     .set_read_timeout(Some(Duration::from_secs(5)))
                     .unwrap();

@@ -1,4 +1,4 @@
-# spatie-robots-txt
+# Parse `robots.txt`, `robots` meta and headers
 
 [![Latest version on crates.io](https://img.shields.io/crates/v/spatie-robots-txt.svg?style=flat-square)](https://crates.io/crates/spatie-robots-txt)
 [![Tests](https://img.shields.io/github/actions/workflow/status/spatie/robots-txt-rust/ci.yml?branch=main&style=flat-square)](https://github.com/spatie/robots-txt-rust/actions/workflows/ci.yml)
