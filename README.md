@@ -19,11 +19,10 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 ## Installation
 
-Requires Rust 1.89 or newer. Before publication, use the public repository:
+Requires Rust 1.89 or newer. You can install the package with Cargo:
 
-```toml
-[dependencies]
-spatie-robots-txt = { git = "https://github.com/spatie/robots-txt-rust", branch = "main" }
+```sh
+cargo add spatie-robots-txt
 ```
 
 ## Usage
