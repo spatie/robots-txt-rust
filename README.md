@@ -69,7 +69,7 @@ let robots = Robots::create().user_agent("UserAgent007");
 By default, `Robots` will look for a `robots.txt` file on `https://host.com/robots.txt`.
 Another location can be specified with `with_txt_from`. Use `with_txt` to supply a parsed `RobotsTxt`.
 
-The HTTP convenience methods are blocking. The parsers work without network access and can inspect content fetched by any HTTP client. See the [usage guide](https://github.com/spatie/robots-txt-rust/blob/main/docs/usage.md) and [PHP compatibility notes](https://github.com/spatie/robots-txt-rust/blob/main/docs/compatibility.md), including the PHP package's fail-open robots.txt reads.
+The HTTP convenience methods are blocking. The parsers work without network access and can inspect content fetched by any HTTP client. See the [usage guide](https://github.com/spatie/robots-txt-rust/blob/main/docs/usage.md). An unreadable robots.txt allows crawling by default; use `try_read_from` to handle loading errors explicitly.
 
 ## Testing
 

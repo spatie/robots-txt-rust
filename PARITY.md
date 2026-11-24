@@ -1,5 +1,5 @@
 ---
-title: PHP compatibility
+title: Internal parser comparison
 weight: 7
 ---
 
@@ -16,7 +16,7 @@ The reference is [spatie/robots-txt at df0f6c8](https://github.com/spatie/robots
 - **Source loading:** Loading and failure policies use `read_from` and `try_read_from`. Verified with local-file and real loopback HTTP tests.
 - **Combined checks:** Default robots.txt discovery, custom source, user agent and combined index/follow checks use `Robots`. Verified with real loopback HTTP tests, including denied-request short-circuiting.
 
-The checked-in expectations are produced by `tests/generate-fixtures.php`, not by the Rust implementation. The normal Rust test suite needs no PHP installation or running web server. See [testing](testing.md) to regenerate them. The parser fixture checks execute locally and in CI; network examples marked `no_run` compile without contacting public sites.
+The checked-in expectations are produced by `tests/generate-fixtures.php`, not by the Rust implementation. The normal Rust test suite needs no PHP installation or running web server. Run that generator with the pinned reference installed when refreshing fixtures. See [testing](docs/testing.md) for Rust checks. The parser fixture checks execute locally and in CI; network examples marked `no_run` compile without contacting public sites.
 
 ## Rust differences
 

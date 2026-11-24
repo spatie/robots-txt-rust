@@ -2,6 +2,10 @@
 
 All notable changes to `spatie-robots-txt` will be documented in this file.
 
+## 1.0.1 - 2026-11-24
+
+- Explain loading failures and parser behavior in the usage guide.
+
 ## 1.0.0 - 2026-11-24
 
 - Port robots.txt rules, user-agent matching, crawl delays and disallow reasons.
